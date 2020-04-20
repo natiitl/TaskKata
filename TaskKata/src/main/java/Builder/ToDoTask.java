@@ -1,17 +1,16 @@
 package Builder;
 
 import ExceptionTask.IdRequiredException;
-import Repository.TaskRepository;
+import ExceptionTask.WrongNameLengthException;
+
 
 import java.util.Objects;
 
 public class ToDoTask {
     private int idTasK=0;
     private String nameTask="";
-    private int dayTask=0;
-    private int monthTask=0;
-    private int yearTask=0;
-    private TaskRepository taskRepository;
+    private DateTask dateTask;
+
 
 
     ToDoTask(ToDoTaskBuilder builder){
@@ -20,9 +19,11 @@ public class ToDoTask {
            throw new IdRequiredException("Unable to create task without identifier");
         }
         this.nameTask = builder.getNameTask();
-        this.dayTask = builder.getDayTask();
-        this.monthTask = builder.getMonthTask();
-        this.yearTask = builder.getYearTask();
+        if(nameTask.length()<4){
+            throw new WrongNameLengthException("Incorrect name length, must be from 5 to 20 characters.");
+        }
+        this.dateTask = builder.getDateTask();
+
     }
 
 
@@ -30,7 +31,7 @@ public class ToDoTask {
     public String toString() {
         return "Id=" + idTasK +
                 "\nTask='" + nameTask +
-                "\nDue=" + yearTask+ "-" + monthTask +"-"+dayTask;
+                "\nDue=" + dateTask.toString();
     }
 
     @Override

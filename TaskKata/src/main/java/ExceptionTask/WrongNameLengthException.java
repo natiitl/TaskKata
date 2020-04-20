@@ -1,7 +1,7 @@
 package ExceptionTask;
 
 public class WrongNameLengthException extends RuntimeException {
-    WrongNameLengthException(String message){
+    public WrongNameLengthException(String message){
         super(message);
     }
 }

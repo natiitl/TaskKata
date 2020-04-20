@@ -31,7 +31,13 @@ public class ToDoTaskKataShould {
                 .addIdTasK(1)
                 .addNameTasK("Tarea1")
                 .build();
-
         assertThrows(IdExistException.class,() -> taskRepository.addTask(toDoTask2));
+    }
+@Test
+    public void raise_error_when_name_length_is_less_then_five_characters(){
+        assertThrows(WrongNameLengthException.class,() -> new ToDoTaskBuilder()
+                .addIdTasK(1)
+                .addNameTasK("NO")
+                .build());
     }
 }
