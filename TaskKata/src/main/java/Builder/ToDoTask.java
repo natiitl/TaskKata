@@ -13,10 +13,11 @@ public class ToDoTask {
     private int idTasK=0;
     private String nameTask="";
     private DateTask dateTask;
+    private boolean incomplete;
 
 
 
-    ToDoTask(ToDoTaskBuilder builder){
+    public ToDoTask(ToDoTaskBuilder builder){
         this.idTasK = builder.getIdTasK();
         if(this.idTasK==0){
            throw new IdRequiredException("Unable to create task without identifier");
@@ -30,7 +31,18 @@ public class ToDoTask {
             throw new WrongNameLengthException("Incorrect name length, must be from 5 to 20 characters");
         }
         this.dateTask = builder.getDateTask();
+        this.incomplete = true;
 
+    }
+
+    public ToDoTask(int idTask, String nameTask, DateTask dateTask) {
+        this.idTasK = idTask;
+        this.nameTask = nameTask;
+        this.dateTask = dateTask;
+    }
+
+    public void taskComplete(){
+        this.incomplete = false;
     }
 
 
