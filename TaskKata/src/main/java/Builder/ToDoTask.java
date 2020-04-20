@@ -49,7 +49,7 @@ public class ToDoTask {
     @Override
     public String toString() {
         return "Id=" + idTasK +
-                "\nTask='" + nameTask +
+                "\nTask=" + nameTask +
                 "\nDue=" + dateTask.toString();
     }
 
@@ -68,5 +68,9 @@ public class ToDoTask {
 
     public boolean isSame(ToDoTask toDoTask) {
         return this.equals(toDoTask);
+    }
+
+    public boolean isIncomplete() {
+        return incomplete;
     }
 }

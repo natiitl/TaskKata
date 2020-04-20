@@ -3,18 +3,24 @@ package UnitTest;
 
 import Builder.*;
 import ExceptionTask.*;
+import TodoTask.*;
 import Repository.TaskRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
 
 public class ToDoTaskExceptionsShould {
     TaskRepository taskRepository;
+    Console console;
 
     @BeforeEach
     public void init() {
-        taskRepository = new TaskRepository();
+        console = mock(Console.class);
+        taskRepository = new TaskRepository(console);
     }
 
     @Test
