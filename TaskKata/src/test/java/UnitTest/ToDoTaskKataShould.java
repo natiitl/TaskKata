@@ -52,4 +52,11 @@ public class ToDoTaskKataShould {
                 .addNameTasK("NameWithLongVeryLongCharacter")
                 .build());
     }
+    @Test
+    public void raise_error_when_the_name_have_not_alphanumeric_characters_and_spaces(){
+        assertThrows(CharactersNotValidException.class, () -> new ToDoTaskBuilder()
+                .addIdTasK(1)
+                .addNameTasK("Name_not_9valid")
+                .build());
+    }
 }

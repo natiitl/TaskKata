@@ -1,10 +1,13 @@
 package Builder;
 
+import ExceptionTask.CharactersNotValidException;
 import ExceptionTask.IdRequiredException;
 import ExceptionTask.WrongNameLengthException;
 
 
+import java.nio.charset.CharacterCodingException;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 public class ToDoTask {
     private int idTasK=0;
@@ -19,8 +22,12 @@ public class ToDoTask {
            throw new IdRequiredException("Unable to create task without identifier");
         }
         this.nameTask = builder.getNameTask();
+        if(!Pattern.matches("^[a-zA-Z0-9 ]*$", this.nameTask)){
+            throw new CharactersNotValidException("The name can only have alphanumeric characters and spaces");
+
+        }
         if(nameTask.length()<4|| nameTask.length()>20){
-            throw new WrongNameLengthException("Incorrect name length, must be from 5 to 20 characters.");
+            throw new WrongNameLengthException("Incorrect name length, must be from 5 to 20 characters");
         }
         this.dateTask = builder.getDateTask();
 
