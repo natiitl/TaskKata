@@ -1,6 +1,9 @@
 package Builder;
 
 import ExceptionTask.IdRequiredException;
+import Repository.TaskRepository;
+
+import java.util.Objects;
 
 public class ToDoTask {
     private int idTasK=0;
@@ -8,6 +11,8 @@ public class ToDoTask {
     private int dayTask=0;
     private int monthTask=0;
     private int yearTask=0;
+    private TaskRepository taskRepository;
+
 
     ToDoTask(ToDoTaskBuilder builder){
         this.idTasK = builder.getIdTasK();
@@ -26,5 +31,22 @@ public class ToDoTask {
         return "Id=" + idTasK +
                 "\nTask='" + nameTask +
                 "\nDue=" + yearTask+ "-" + monthTask +"-"+dayTask;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ToDoTask toDoTask = (ToDoTask) o;
+        return idTasK == toDoTask.idTasK;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idTasK);
+    }
+
+    public boolean isSame(ToDoTask toDoTask) {
+        return this.equals(toDoTask);
     }
 }
