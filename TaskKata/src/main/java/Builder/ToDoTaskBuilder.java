@@ -1,4 +1,6 @@
-public class TaskBuilder {
+package Builder;
+
+public class ToDoTaskBuilder {
     private int idTasK;
     private String nameTask;
     private int dayTask;
@@ -26,30 +28,30 @@ public class TaskBuilder {
     private int monthTask;
     private int yearTask;
 
-    public TaskBuilder addIdTasK(int idTasK) {
+    public ToDoTaskBuilder addIdTasK(int idTasK) {
         this.idTasK = idTasK;
         return this;
     }
-    public TaskBuilder addNameTasK(String nameTask) {
+    public ToDoTaskBuilder addNameTasK(String nameTask) {
         this.nameTask = nameTask;
         return this;
     }
 
-    public TaskBuilder addDayTasK(int dayTask) {
+    public ToDoTaskBuilder addDayTasK(int dayTask) {
         this.dayTask = dayTask;
         return this;
     }
-    public TaskBuilder addMonthTasK(int monthTask) {
+    public ToDoTaskBuilder addMonthTasK(int monthTask) {
         this.monthTask = monthTask;
         return this;
     }
-    public TaskBuilder addYearTasK(int yearTask) {
+    public ToDoTaskBuilder addYearTasK(int yearTask) {
         this.yearTask = yearTask;
         return this;
     }
 
-    public Task build(){
-        return new Task(this);
+    public ToDoTask build(){
+        return new ToDoTask(this);
     }
 
 }
