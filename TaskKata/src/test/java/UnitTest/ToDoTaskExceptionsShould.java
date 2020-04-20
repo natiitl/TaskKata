@@ -63,4 +63,14 @@ public class ToDoTaskExceptionsShould {
     public void raise_error_when_invalid_date_00_00_00(){
         assertThrows(DateNotValidateException.class, ()-> new DateTaskBuilder().build());
     }
+
+    @Test
+    public void raise_error_when_invalid_date_20_13_01(){
+        assertThrows(DateNotValidateException.class,
+                () -> new DateTaskBuilder()
+                        .addDayTasK(1)
+                        .addMonthTasK(13)
+                        .addYearTasK(20)
+                        .build());
+    }
 }
