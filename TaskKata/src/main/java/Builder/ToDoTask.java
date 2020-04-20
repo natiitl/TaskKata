@@ -19,7 +19,7 @@ public class ToDoTask {
            throw new IdRequiredException("Unable to create task without identifier");
         }
         this.nameTask = builder.getNameTask();
-        if(nameTask.length()<4){
+        if(nameTask.length()<4|| nameTask.length()>20){
             throw new WrongNameLengthException("Incorrect name length, must be from 5 to 20 characters.");
         }
         this.dateTask = builder.getDateTask();
