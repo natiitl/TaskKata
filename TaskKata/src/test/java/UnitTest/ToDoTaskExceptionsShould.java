@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ToDoTaskKataShould {
+public class ToDoTaskExceptionsShould {
     TaskRepository taskRepository;
 
     @BeforeEach
@@ -58,5 +58,9 @@ public class ToDoTaskKataShould {
                 .addIdTasK(1)
                 .addNameTasK("Name_not_9valid")
                 .build());
+    }
+    @Test
+    public void raise_error_when_invalid_date_00_00_00(){
+        assertThrows(DateNotValidateException.class, ()-> new DateTaskBuilder().build());
     }
 }
